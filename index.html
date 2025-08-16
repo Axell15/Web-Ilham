@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk Kita</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: purple;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    #cart {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      background: white;
+      color: purple;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .produk {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.);
+      transition: transform 0.2s;
+    }
+
+    .produk:hover {
+      transform: scale(1.05);
+    }
+
+    .produk img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .btn-beli {
+      display: inline-block;
+      background: purple;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-beli:hover {
+      background: darkmagenta;
+    }
+   .product-card {
+  width: 200px;           /* ukuran kotak */
+  border: 1px solid #ccc; /* garis tipis */
+  border-radius: 10px;    /* sudut melengkung */
+  padding: 10px;          /* jarak dalam kotak */
+  text-align: center;     /* supaya teks rata tengah */
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1); /* efek shadow */
+  margin: 10px;           /* jarak antar card */
+  display: inline-block;  /* supaya card bisa berdampingan */
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-title {
+  font-size: 16px;
+  margin: 10px 0 5px 0;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #555;
+}
+    .produk {
+  width: 250px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin: 20px auto;
+}
+
+.produk img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.produk h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+.produk p {
+  font-size: 14px;
+  color: #666;
+}
+.harga-asli {
+    text-decoration: line-through; /* Efek coretan */
+    color: #666; /* Warna abu-abu */
+}
+
+.harga-diskon {
+    font-weight: bold; /* Teks tebal */
+    color: #008000; /* Warna hijau */
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daftar Produk</h1>
+    <div id="cart">🛒 0</div>
+  </header>
+
+  <div class="container">
+    <div class="produk">
+      <img src="Baju_Negara_Angin.jpg" alt="Baju_Negara_Angin">
+      <h2>Baju Negara Angin V1</h2>
+      <p>Deskripsi singkat produk 1</p>
+      <a href="#" class="btn-beli">Beli Sekarang</a>
+      <div class="cart-item-info">
+    <h3>Produk 1</h3>
+    <p class="harga asli">Rp 200.000</p> <!-- harga asli dengan coretan -->
+      <p class="harga diskon">Rp 100.000</p> <!-- harga diskon -->
+    <span>Diskon 50%</span> <!-- Tambahkan elemen span di bawah p -->
+    <div class="produk">
+      <img src="Bendera_Negara_Angin.jpg" alt="Bendera_Negara_Angin">
+      <h2>Bendera Timur Punya</h2>
+      <p>Bendera yang merujuk pada ke solidaritasan dalam pertemanan yang sudah seperti keluarga didalamnya</p>
+      <a href="#" class="btn-beli">Beli Sekarang</a>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    const cart = document.getElementById("cart");
+    const buttons = document.querySelectorAll(".btn-beli");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault(); // biar gak reload halaman
+        cartCount++;
+        cart.textContent = `🛒 ${cartCount}`;
+        alert("Produk berhasil dimasukkan ke keranjang!");
+      });
+    });
+  </script>
+</body>
+</html>
